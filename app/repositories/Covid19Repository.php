@@ -19,7 +19,14 @@ class Covid19Repository implements ApiRepositoryInterface
 
     public function getResponse(string|null $pais): array
     {
+        if (empty($pais)) {
+            throw new \InvalidArgumentException("O parâmetro \$pais não pode estar vazio ou nulo.");
+        }
+
         $response = $this->__model->getResponse($pais);
+        if ($response == null) {
+            throw new \Exception("País não encontrado", 404);
+        }
 
         try {
             date_default_timezone_set("America/Sao_Paulo");
@@ -35,7 +42,7 @@ class Covid19Repository implements ApiRepositoryInterface
 
             return $response;
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            throw new \PDOException("Erro ao inserir dados na tabela consultaAPI: " . $e->getMessage());
         }
     }
 }
