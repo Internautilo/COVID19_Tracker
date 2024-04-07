@@ -1,10 +1,7 @@
 <?php
-use App\Services\Covid19Service;
+use App\Controllers\Covid19Controller;
 
 require_once "./vendor/autoload.php";
-
-
-
 ?>
 
 
@@ -51,7 +48,7 @@ require_once "./vendor/autoload.php";
             </div>
             <div class="row justify-content-center">
                 <?php
-                $apiCovid = new Covid19Service;
+                $apiCovid = new Covid19Controller;
                 $response = $apiCovid->getResponse($_POST['pais']);
 
                 foreach ($response as $estado) {
