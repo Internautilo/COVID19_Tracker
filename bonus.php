@@ -60,7 +60,7 @@ $apiPaises = new PaisesDisponiveisController;
                 </div>
             </div>
         </form>
-        <div class="row justify-content-around mt-5">
+        <div class="row justify-content-center mt-5">
 
             <?php if (isset($_POST['pais1']) && isset($_POST['pais2'])) {
                 $i = 0;
@@ -68,37 +68,74 @@ $apiPaises = new PaisesDisponiveisController;
                     $pais = $_POST["pais" . $i + 1];
 
                     $response = $apiCovid->getResponse($pais);
+                    if ($i == 0) {
+                        $justify = "end";
+                    } else {
+                        $justify = "start";
+                    }
 
                     $totalConfirmados = 0;
                     $totalMortos = 0;
+                    $totalConfirmados1;
+                    $totalConfirmados2;
+                    $totalMortos1;
+                    $totalMortos2;
                     foreach ($response as $estado) {
                         $totalConfirmados += $estado->Confirmados;
                         $totalMortos += $estado->Mortos;
-                    } ?>
-
-
-                    <div class="col-sm-5 mt-2 mb-3 mx-2 border border-2 rounded pb-4">
+                    }
+                    if ($i == 0) {
+                        $totalConfirmados1 = $totalConfirmados;
+                        $totalMortos1 = $totalMortos;
+                    } else {
+                        $totalConfirmados2 = $totalConfirmados;
+                        $totalMortos2 = $totalMortos;
+                    }
+                    ?>
+                    <div class="col-sm-2 mt-2 mb-3 mx-5 border border-2 rounded pb-4">
                         <div class="container">
-                            <div class="mt-2">
+                            <div class="mt-2 text-<?= $justify ?>">
                                 <h2 class="bold">
                                     <?= $estado->Pais ?>
                                 </h2>
                             </div>
-                            <div class="mt-3">
+                            <div class="mt-3 text-<?= $justify ?>">
                                 <label for="confirmados" class="form-label">Casos Confirmados</label>
-                                <input type="text" class="form-control mb-3" id="confirmados" disabled readonly
-                                    placeholder="Número de Mortes" value="<?= $totalConfirmados ?>">
+                                <input type="text" class="form-control mb-3 text-<?= $justify ?>" id="confirmados" disabled
+                                    readonly placeholder="Número de Mortes" value="<?= $totalConfirmados ?>">
                                 <label for="mortes" class="form-label">Mortes</label>
-                                <input type="text" class="form-control" id="mortes" disabled readonly
+                                <input type="text" class="form-control text-<?= $justify ?>" id="mortes" disabled readonly
                                     placeholder="Número de Mortes" value="<?= $totalMortos ?>">
                             </div>
                         </div>
                     </div>
 
-                <?php } ?>
+                <?php }
+
+                $direfencaConfirmados = ($totalConfirmados1 > $totalConfirmados2) ? ($totalConfirmados1 - $totalConfirmados2) : ($totalConfirmados2 - $totalConfirmados1);
+                $diferencaMortos = ($totalMortos1 > $totalMortos2) ? ($totalMortos1 - $totalMortos2) : ($totalMortos2 - $totalMortos1);
+                ?>
                 <hr class="invisible" style="height: 100px">
             </div>
-
+            <div class="row justify-content-center">
+                <div class="col-sm-4 mt-2 mb-3 mx-2 border border-2 rounded pb-4">
+                    <div class="container">
+                        <div class="mt-2 text-center">
+                            <h2 class="bold">
+                                Diferença
+                            </h2>
+                        </div>
+                        <div class="mt-3 text-center">
+                            <label for="confirmados" class="form-label">Casos Confirmados</label>
+                            <input type="text" class="form-control mb-3 text-center" id="confirmados" disabled readonly
+                                placeholder="Número de Mortes" value="<?= $direfencaConfirmados ?>">
+                            <label for="mortes" class="form-label">Mortes</label>
+                            <input type="text" class="form-control text-center" id="mortes" disabled readonly
+                                placeholder="Número de Mortes" value="<?= $diferencaMortos ?>">
+                        </div>
+                    </div>
+                </div>
+            </div>
         <?php } else { ?>
             <div class="row">
                 <div class="col-sm mt-5">
@@ -115,10 +152,7 @@ $apiPaises = new PaisesDisponiveisController;
                 </div>
             </div>
         <?php } ?>
-
     </div>
-
-
 </body>
 
 <footer>
