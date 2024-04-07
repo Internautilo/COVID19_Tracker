@@ -13,7 +13,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 <footer class="footer mt-auto py-2 bg-body-tertiary fixed-bottom">
     <div class="container text-center">
         <span class="text-body-secondary">Ultima pesquisa (
-            <?= $result["pais"] . " - " . $result["data"] ?>)
+            <?= $result["pais"] . " - " . $result["data"] ?> )
         </span>
     </div>
 </footer>
