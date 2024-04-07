@@ -32,6 +32,13 @@ $apiPaises = new PaisesDisponiveisController;
                     <div class="container">
                         <select class="form-select mt-5 mb-3" id="pais1" name="pais1" aria-label="Seleção de País">
                             <option selected>Selecionar pais</option>
+                            <?php
+                            $paises = $apiPaises->getResponse();
+                            foreach ($paises as $pais) { ?>
+                                <option value="<?= $pais ?>">
+                                    <?= $pais ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -39,6 +46,13 @@ $apiPaises = new PaisesDisponiveisController;
                     <div class="container">
                         <select class="form-select mt-5 mb-3" id="pais2" name="pais2" aria-label="Seleção de País">
                             <option selected>Selecionar pais</option>
+                            <?php
+                            $paises = $apiPaises->getResponse();
+                            foreach ($paises as $pais) { ?>
+                                <option value="<?= $pais ?>">
+                                    <?= $pais ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
