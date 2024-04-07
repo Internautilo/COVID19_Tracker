@@ -13,7 +13,7 @@ class Covid19 implements ApiInterface
             $response = json_decode($response);
 
             foreach ($response as $estado) {
-                $estados[$estado->ProvinciaEstado] = $estado;
+                $estados[] = $estado;
             };
 
             return $estados;
