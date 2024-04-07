@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Api;
-
-use App\Api\Interfaces\ApiInterface;
+namespace App\Models\Api;
+use App\Models\Api\Interfaces\ApiInterface;
 
 class Covid19 implements ApiInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Interfaces;
+namespace App\Models\Api\Interfaces;
 
 interface ApiInterface
 {
