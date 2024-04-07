@@ -7,8 +7,8 @@ use Database\DbConnection;
 
 class Covid19Repository implements ApiRepositoryInterface
 {
-    private Covid19 $__model;
-    private \PDO $__connection;
+    private readonly Covid19 $__model;
+    private readonly \PDO $__connection;
 
     public function __construct()
     {
