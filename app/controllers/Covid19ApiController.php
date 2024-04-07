@@ -13,7 +13,7 @@ class Covid19ApiController implements ApiControllerInterface
         $this->__service = new Covid19Service;
     }
 
-    public function getResponse(string|null $param = "1"): array
+    public function getResponse(string|null $param): array
     {
         return $this->__service->getResponse();
     }
