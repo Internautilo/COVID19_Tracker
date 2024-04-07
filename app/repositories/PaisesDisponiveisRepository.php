@@ -7,8 +7,8 @@ use Database\DbConnection;
 
 class PaisesDisponiveisRepository implements ApiRepositoryInterface
 {
-    private PaisesDisponiveis $__model;
-    private \PDO $__connection;
+    private readonly PaisesDisponiveis $__model;
+    private readonly \PDO $__connection;
 
     public function __construct()
     {
@@ -17,7 +17,7 @@ class PaisesDisponiveisRepository implements ApiRepositoryInterface
         $this->__connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
-    public function getResponse(string|null $param): array
+    public function getResponse(string|null $param = "1"): array
     {
         return $this->__model->getResponse();
     }

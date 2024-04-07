@@ -13,7 +13,7 @@ class PaisesDisponiveisService implements ApiServiceInterface
         $this->__repository = new PaisesDisponiveisRepository;
     }
 
-    public function getResponse(string|null $param): array
+    public function getResponse(string|null $param = "1"): array
     {
         return $this->__repository->getResponse();
     }

@@ -5,7 +5,7 @@ use App\Models\Api\Interfaces\ApiInterface;
 
 class PaisesDisponiveis implements ApiInterface
 {
-    public function getResponse(string|null $param): array
+    public function getResponse(string|null $param = "1"): array
     {
         try {
             $response = file_get_contents("https://dev.kidopilabs.com.br/exercicio/covid.php?listar_paises=1");
