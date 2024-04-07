@@ -1,6 +1,20 @@
+<?php
+use Database\DbConnection;
+
+$conn = DbConnection::getConnection();
+
+$query = "SELECT * FROM consultaApi ORDER BY id DESC LIMIT 1";
+
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
 <footer class="footer mt-auto py-2 bg-body-tertiary fixed-bottom">
     <div class="container text-center">
-        <span class="text-body-secondary">Place sticky footer content here.</span>
+        <span class="text-body-secondary">Ultima pesquisa (
+            <?= $result["pais"] . " - " . $result["data"] ?>)
+        </span>
     </div>
 </footer>
 
