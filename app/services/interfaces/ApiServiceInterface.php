@@ -1,5 +1,5 @@
 <?php
-namespace APp\Services\Interfaces;
+namespace App\Services\Interfaces;
 
 interface ApiServiceInterface
 {
