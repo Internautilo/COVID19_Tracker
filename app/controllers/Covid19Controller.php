@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Controllers\Interfaces\ApiControllerInterface;
 use App\Services\Covid19Service;
 
-class Covid19ApiController implements ApiControllerInterface
+class Covid19Controller implements ApiControllerInterface
 {
     private readonly Covid19Service $__service;
 

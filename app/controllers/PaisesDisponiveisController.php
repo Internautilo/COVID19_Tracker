@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Controllers\Interfaces\ApiControllerInterface;
 use App\Services\PaisesDisponiveisService;
 
-class PaisesDisponiveisApiController implements ApiControllerInterface
+class PaisesDisponiveisController implements ApiControllerInterface
 {
     private readonly PaisesDisponiveisService $__service;
 
