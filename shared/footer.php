@@ -3,7 +3,7 @@ use Database\DbConnection;
 
 $conn = DbConnection::getConnection();
 
-$query = "SELECT * FROM consultaApi ORDER BY id DESC LIMIT 1";
+$query = "SELECT * FROM consultaapi ORDER BY id DESC LIMIT 1";
 
 $stmt = $conn->prepare($query);
 $stmt->execute();

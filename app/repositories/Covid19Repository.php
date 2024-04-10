@@ -32,7 +32,7 @@ class Covid19Repository implements ApiRepositoryInterface
             date_default_timezone_set("America/Sao_Paulo");
             $date = date('Y-m-d H:i:s');
 
-            $query = "INSERT INTO consultaAPI (pais, data) VALUES (:pais, :data)";
+            $query = "INSERT INTO consultaapi (pais, data) VALUES (:pais, :data)";
 
             $stmt = $this->__connection->prepare($query);
             $stmt->bindParam(':pais', $pais);
