@@ -24,11 +24,12 @@ Abra o terminal na pasta principal do projeto e execute o seguinte comando  para
 
 Abra o arquivo `.env` com um editor de texto de sua escolha e altere os seguites parametros com as configurações do seu banco de dados:
 
-`DB_USERNAME` - Usuário do banco de dados
-`DB_PASSWORD` - Senha do banco de dados
+`DB_USERNAME` - Usuário do banco de dados.
 
-==IMPORTANTE==
-: Altere ***somente*** esses dois parâmetros, a não ser que deseje alterar o ip do servidor (`DB_HOST`) ou o banco de dados (`DB_DATABASE`)
+`DB_PASSWORD` - Senha do banco de dados.
+
+>[!WARNING]
+>Altere ***somente*** esses dois parâmetros, a não ser que deseje alterar o ip do servidor (`DB_HOST`) ou o banco de dados (`DB_DATABASE`)
 
 ### Passo 3: Executar o arquivo dump.sql
 
