@@ -1,14 +1,19 @@
 <?php
 use Database\DbConnection;
 
-$conn = DbConnection::getConnection();
+try {
+    $conn = DbConnection::getConnection();
 
-$query = "SELECT * FROM consultaapi ORDER BY id DESC LIMIT 1";
+    $query = "SELECT * FROM consultaapi ORDER BY id DESC LIMIT 1";
 
-$stmt = $conn->prepare($query);
-$stmt->execute();
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
 
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+} catch (\Throwable $th) {
+    throw $th;
+}
+
 ?>
 <footer class="footer mt-auto py-2 bg-body-tertiary fixed-bottom">
     <div class="container text-center">
