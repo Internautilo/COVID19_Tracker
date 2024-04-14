@@ -68,29 +68,17 @@ $apiPaises = new PaisesDisponiveisController;
                     $pais = $_POST["pais" . $i + 1];
 
                     $response = $apiCovid->getResponse($pais);
-                    if ($i == 0) {
-                        $justify = "end";
-                    } else {
-                        $justify = "start";
-                    }
 
-                    $totalConfirmados = 0;
-                    $totalMortos = 0;
-                    $totalConfirmados1;
-                    $totalConfirmados2;
-                    $totalMortos1;
-                    $totalMortos2;
+                    $justify = ($i == 0) ? "end" : "start";
+
+                    $totalEstadosConfirmados = 0;
+                    $totalEstadoMortos = 0;
                     foreach ($response as $estado) {
-                        $totalConfirmados += $estado->Confirmados;
-                        $totalMortos += $estado->Mortos;
+                        $totalEstadosConfirmados += $estado->Confirmados;
+                        $totalEstadoMortos += $estado->Mortos;
                     }
-                    if ($i == 0) {
-                        $totalConfirmados1 = $totalConfirmados;
-                        $totalMortos1 = $totalMortos;
-                    } else {
-                        $totalConfirmados2 = $totalConfirmados;
-                        $totalMortos2 = $totalMortos;
-                    }
+                    $totalConfirmados[$i] = $totalEstadosConfirmados;
+                    $totalMortos[$i] = $totalEstadoMortos;
                     ?>
                     <div class="col-sm-2 mt-2 mb-3 mx-5 border border-2 rounded pb-4">
                         <div class="container">
@@ -102,18 +90,18 @@ $apiPaises = new PaisesDisponiveisController;
                             <div class="mt-3 text-<?= $justify ?>">
                                 <label for="confirmados" class="form-label">Casos Confirmados</label>
                                 <input type="text" class="form-control mb-3 text-<?= $justify ?>" id="confirmados" disabled
-                                    readonly placeholder="Número de Mortes" value="<?= $totalConfirmados ?>">
+                                    readonly placeholder="Número de Mortes" value="<?= $totalEstadosConfirmados ?>">
                                 <label for="mortes" class="form-label">Mortes</label>
                                 <input type="text" class="form-control text-<?= $justify ?>" id="mortes" disabled readonly
-                                    placeholder="Número de Mortes" value="<?= $totalMortos ?>">
+                                    placeholder="Número de Mortes" value="<?= $totalEstadoMortos ?>">
                             </div>
                         </div>
                     </div>
 
                 <?php }
 
-                $direfencaConfirmados = ($totalConfirmados1 > $totalConfirmados2) ? ($totalConfirmados1 - $totalConfirmados2) : ($totalConfirmados2 - $totalConfirmados1);
-                $diferencaMortos = ($totalMortos1 > $totalMortos2) ? ($totalMortos1 - $totalMortos2) : ($totalMortos2 - $totalMortos1);
+                $direfencaConfirmados = ($totalConfirmados[0] > $totalConfirmados[1]) ? ($totalConfirmados[0] - $totalConfirmados[1]) : ($totalConfirmados[1] - $totalConfirmados[0]);
+                $diferencaMortos = ($totalMortos[0] > $totalMortos[1]) ? ($totalMortos[0] - $totalMortos[1]) : ($totalMortos[1] - $totalMortos[0]);
                 ?>
                 <hr class="invisible" style="height: 100px">
             </div>
