@@ -18,7 +18,11 @@ try {
 <footer class="footer mt-auto py-2 bg-body-tertiary fixed-bottom">
     <div class="container text-center">
         <span class="text-body-secondary">Ultima pesquisa (
-            <?= $result["pais"] . " - " . $result["data"] ?> )
+            <?php if (is_array($result)) {
+                echo $result["pais"] . " - " . $result["data"];
+            } else {
+                echo " - ";
+            } ?> )
         </span>
     </div>
 </footer>
