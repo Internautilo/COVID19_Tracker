@@ -1,9 +1,11 @@
 # COVID19_Tracker
-Projeto de rastreamento de mortes e casos confirmados de COVID19 de varios estados e países.
+Projeto Web para rastreamento de mortes e casos confirmados por COVID-19 em diferentes estados e países.
+
+Feito para um teste técnico para um processo seletivo, recebe os dados dos países de uma API feita especificamente para esse teste técnico (o projeto pode ou não funcionar após o tempo de avaliação, devido à ele utilizar uma API feita pela empresa avaliadora). Podem ser mostrados os dados de um unico país em tela ou podendo comparar a diferenca entre dois paises diferentes.   
 
 ---
 
-## Instruções para Configurar o Projeto
+## Instruções para Configurar o Projeto para Rodar Localmente
 
 ### Requisitos
 
@@ -18,7 +20,7 @@ Projeto de rastreamento de mortes e casos confirmados de COVID19 de varios estad
 
 Abra o terminal na pasta principal do projeto e execute o seguinte comando  para instalar as dependencias do composer:
 
-    $ composer install -o
+    composer install -o
 
 ### Passo 2: Configurar o arquivo .env 
 
@@ -39,7 +41,7 @@ Execute o arquivo `dump-covid19_tracker-202404071850.sql` em seu gerenciador de 
 
 Para visualizar o projeto localmente de forma simples e rápida utilizando apenas os programas listados nos requisitos, abra o terminal na pasta principal do projeto e execute o seguinte comando:
 
-    $ php -S localhost:8000
+    php -S localhost:8000
 
 Em seguida, em seu navegador, entre na página http://localhost:8000.
 
