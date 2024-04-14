@@ -99,9 +99,12 @@ $apiPaises = new PaisesDisponiveisController;
                     </div>
 
                 <?php }
-
-                $direfencaConfirmados = ($totalConfirmados[0] > $totalConfirmados[1]) ? ($totalConfirmados[0] - $totalConfirmados[1]) : ($totalConfirmados[1] - $totalConfirmados[0]);
-                $diferencaMortos = ($totalMortos[0] > $totalMortos[1]) ? ($totalMortos[0] - $totalMortos[1]) : ($totalMortos[1] - $totalMortos[0]);
+                $direfencaConfirmados = ($totalConfirmados[0] > $totalConfirmados[1]) ?
+                    ($totalConfirmados[0] - $totalConfirmados[1]) :
+                    ($totalConfirmados[1] - $totalConfirmados[0]);
+                $diferencaMortos = ($totalMortos[0] > $totalMortos[1]) ?
+                    ($totalMortos[0] - $totalMortos[1]) :
+                    ($totalMortos[1] - $totalMortos[0]);
                 ?>
                 <hr class="invisible" style="height: 100px">
             </div>
